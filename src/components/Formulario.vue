@@ -45,6 +45,7 @@ export default defineComponent({
   data() {
     return {
       tempoEmSegundos: 0,
+      refCronometro: 0,
     };
   },
   computed: {
@@ -54,13 +55,12 @@ export default defineComponent({
   },
   methods: {
     iniciar() {
-      setInterval(() => {
+      this.refCronometro = setInterval(() => {
         this.tempoEmSegundos += 1;
       }, 1000);
-      console.log("iniciando");
     },
     finalizar() {
-      console.log("finalizando");
+      clearInterval(this.refCronometro);
     },
   },
 });

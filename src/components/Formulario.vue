@@ -14,7 +14,7 @@ import { defineComponent } from 'vue';
         />
       </div>
       <div class="column">
-        <Temporizador />
+        <Temporizador @aoTemporizadorFinalizado="finalizarTarefa" />
       </div>
     </div>
   </div>
@@ -27,8 +27,12 @@ import Temporizador from "./Temporizador.vue";
 export default defineComponent({
   name: "Formulario",
   components: {
-    Temporizador
+    Temporizador,
   },
-
+  methods: {
+    finalizarTarefa(tempoDecorrido: number): void {
+      console.log("tempo da tarefa", tempoDecorrido);
+    },
+  },
 });
 </script>
